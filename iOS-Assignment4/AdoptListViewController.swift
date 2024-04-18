@@ -8,18 +8,34 @@
 import UIKit
 
 class AdoptListViewController: UIViewController, NetworkingDogImagesDelegate {
+    var breedName = ""
     
-    func didFinishWithListofDogImages(imgObj: ImagesModel) {
-        //
+    @IBOutlet weak var breedLabel: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var nameInput: UITextField!
+    
+    
+    func didFinishWithListofDogImages(dogImgUrl: String) {
+        print(dogImgUrl)
     }
+    
     
     func didFinishWithError() {
         //
     }
     
+    @IBAction func onAdoptClick(_ sender: Any) {
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NetworkingService.shared.dogImagesDelegate = self
+        
+        NetworkingService.shared.getListofDogPictures(dogBreed: breedName);
+        
+        breedLabel.text = breedName
 
         // Do any additional setup after loading the view.
     }

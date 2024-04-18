@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="I4N-b7-zI8">
-                                <rect key="frame" x="0.0" y="157" width="393" height="591"/>
+                                <rect key="frame" x="0.0" y="157" width="393" height="491"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -54,23 +54,20 @@
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbi-XO-Rg9">
+                                <rect key="frame" x="104" y="676" width="185" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Check Adopted Pups"/>
+                                <connections>
+                                    <segue destination="MPi-tr-FrV" kind="show" id="H4S-Ht-iE3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" id="GC0-aA-6eX">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="rpG-uj-9QL">
-                                <rect key="frame" x="16" y="9.6666666666666643" width="361" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Adopted Pups"/>
-                            </button>
-                            <connections>
-                                <segue destination="MPi-tr-FrV" kind="show" id="0MO-xa-Tl1"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="4p2-OZ-cCs"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -146,12 +143,20 @@
                                 <rect key="frame" x="107" y="573" width="160" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <buttonConfiguration key="configuration" style="filled" image="suit.heart.fill" catalog="system" title="Adopt the Pup"/>
+                                <connections>
+                                    <action selector="onAdoptClick:" destination="2yB-K3-gtv" eventType="touchUpInside" id="oqr-b3-Ve2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dk8-kv-s1X"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="p9f-Yl-TXK"/>
+                    <connections>
+                        <outlet property="breedLabel" destination="WoF-nm-IfS" id="caS-nj-dYj"/>
+                        <outlet property="imgView" destination="ITf-gd-VaH" id="3Yf-Jh-J9y"/>
+                        <outlet property="nameInput" destination="wcR-GV-9XN" id="k5h-Qx-q5k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IyU-1S-kLy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

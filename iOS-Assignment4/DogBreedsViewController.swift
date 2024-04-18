@@ -35,7 +35,7 @@ class DogBreedsViewController: UIViewController, UITableViewDelegate, UITableVie
 //        appDelegate?.dogBreedList.append("test2")
         // Do any additional setup after loading the view.
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -54,14 +54,17 @@ class DogBreedsViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        var index = dogBreedTable.indexPathForSelectedRow?.row
+        
+        var avc = segue.destination as? AdoptListViewController
+        avc?.breedName = (appDelegate?.dogBreedList[index!])!
+        
     }
-    */
+    
 
 }
