@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ImagesModel {
+class ImagesModel: Decodable {
     var messages: [String]?;
     var status: String?;
     

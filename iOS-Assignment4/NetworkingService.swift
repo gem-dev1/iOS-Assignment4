@@ -12,7 +12,7 @@ protocol NetworkingDogBreedsDelegate {
     func didFinishWithError();
 }
 protocol NetworkingDogImagesDelegate {
-    func didFinishWithListofDogImages(imgObj: ImagesModel);
+    func didFinishWithListofDogImages(list: [String]);
     func didFinishWithError();
 }
 
@@ -26,7 +26,7 @@ class NetworkingService {
         let urlObj = URL(string: "https://dog.ceo/api/breeds/list/all")!
         let task = URLSession.shared.dataTask(with: urlObj) { data, response, error in
             
-            if let error = error {
+            if let _ = error {
                 self.dogBreedsDelegate?.didFinishWithError()
                 return
             }
@@ -58,15 +58,13 @@ class NetworkingService {
         }
         
         task.resume()
-        
     }
     
     func getListofDogPictures(dogBreed: String){
-        let urlObj = URL(string: "https://dog.ceo/api/breed/\(dogBreed)/images")!
-        
+        let urlObj = URL(string: "https://dog.ceo/api/breeds/list/all")!
         let task = URLSession.shared.dataTask(with: urlObj) { data, response, error in
             
-            if let error = error {
+            if let _ = error {
                 self.dogImagesDelegate?.didFinishWithError()
                 return
             }
@@ -76,10 +74,26 @@ class NetworkingService {
                 self.dogImagesDelegate?.didFinishWithError()
                 return
             }
+                        
+            do {
+                if let data = data {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    if let jsonDict = json as? [String: Any],
+                       let dogImagesDict = jsonDict["message"] as? [String] {
+                        let dogImages = Array(dogImagesDict)
+                        
+                        DispatchQueue.main.async {
+                            self.dogImagesDelegate?.didFinishWithListofDogImages(list: dogImages)
+                        }
+                    }
+                }
+            } catch {
+                print("Error parsing JSON: \(error)")
+                self.dogBreedsDelegate?.didFinishWithError()
+            }
             
         }
-        
         task.resume()
-        
     }
+    
 }
