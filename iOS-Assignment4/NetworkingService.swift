@@ -37,11 +37,22 @@ class NetworkingService {
                 return
             }
             
-            if let jsonString = String(data: data!, encoding: .utf8) {
-            
-                DispatchQueue.main.async {
-                    
+            do {
+                if let data = data {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    if let jsonDict = json as? [String: Any],
+                       let dogBreedsDict = jsonDict["message"] as? [String: Any] {
+                        // Extract dog breeds from the "dogbreeds" dictionary
+                        let dogBreeds = Array(dogBreedsDict.keys)
+                        
+                        DispatchQueue.main.async {
+                            self.dogBreedsDelegate?.didFinishWithListofDogBreeds(list: dogBreeds)
+                        }
+                    }
                 }
+            } catch {
+                print("Error parsing JSON: \(error)")
+                self.dogBreedsDelegate?.didFinishWithError()
             }
             
         }
@@ -51,6 +62,24 @@ class NetworkingService {
     }
     
     func getListofDogPictures(dogBreed: String){
-        let urlObj = URL(string: "https://dog.ceo/api/breed/"+dogBreed+"/images")
+        let urlObj = URL(string: "https://dog.ceo/api/breed/\(dogBreed)/images")!
+        
+        let task = URLSession.shared.dataTask(with: urlObj) { data, response, error in
+            
+            if let error = error {
+                self.dogImagesDelegate?.didFinishWithError()
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                self.dogImagesDelegate?.didFinishWithError()
+                return
+            }
+            
+        }
+        
+        task.resume()
+        
     }
 }
