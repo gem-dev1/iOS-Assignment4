@@ -8,6 +8,7 @@
 import UIKit
 
 class AdoptListViewController: UIViewController, NetworkingDogImagesDelegate {
+    var appDelegate = UIApplication.shared.delegate as? AppDelegate
     var breedName = ""
     
     @IBOutlet weak var breedLabel: UILabel!
@@ -17,14 +18,51 @@ class AdoptListViewController: UIViewController, NetworkingDogImagesDelegate {
     
     func didFinishWithListofDogImages(dogImgUrl: String) {
         print(dogImgUrl)
+        downloadImage(imgURL: dogImgUrl)
+        
     }
     
+    func downloadImage(imgURL: String) {
+        var myQ = DispatchQueue(label: "myQ")
+        myQ.async {
+            do {
+                let urlObj = URL(string: imgURL)
+                if let goodURL = urlObj {
+                    
+                    var imageData = try Data(contentsOf: goodURL)
+                    DispatchQueue.main.async {
+                        self.imgView.image = UIImage(data: imageData)
+                    }
+                }
+            }catch{}
+        }
+    }
     
     func didFinishWithError() {
         //
     }
     
     @IBAction func onAdoptClick(_ sender: Any) {
+        let image = imgView.image
+        
+        if textFieldNotEmpty(textField: nameInput){
+            let pupname = nameInput.text!
+            if let goodimage = image {
+                let adoptedPup = AdoptedPup(name: pupname, image: goodimage, breed: breedName)
+                appDelegate?.adoptedPupsList.append(adoptedPup)
+            }
+        } else {
+            let alert = UIAlertController(title: "Please give them a name first", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            present(alert, animated: true)
+        }
+    }
+    
+    func textFieldNotEmpty(textField: UITextField) -> Bool {
+        guard let text = textField.text else {
+            return false // If the text field's text is nil, consider it empty
+        }
+        return !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
 
