@@ -10,8 +10,9 @@ import UIKit
 class AdoptedPupsTableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var pupName: UILabel!
     @IBOutlet weak var pupImg: UIImageView!
+    @IBOutlet weak var pupName: UILabel!
+    
     @IBOutlet weak var pupBreed: UILabel!
     
     override func awakeFromNib() {

@@ -10,10 +10,10 @@ import UIKit
 
 class AdoptedPup {
     var name: String
-    var image: UIImage
+    var image: UIImage?
     var breed: String
     
-    init(name: String, image: UIImage, breed: String) {
+    init(name: String, image: UIImage?, breed: String) {
         self.name = name
         self.image = image
         self.breed = breed

@@ -19,7 +19,7 @@
 		2F9A0CEB2BD0D4C100E6BD6A /* DogBreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9A0CEA2BD0D4C100E6BD6A /* DogBreedsViewController.swift */; };
 		2FB2BACA2BD1165D00BE6A1E /* AdoptedPup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2BAC92BD1165D00BE6A1E /* AdoptedPup.swift */; };
 		2FB2BACC2BD11D5500BE6A1E /* AdoptedPupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2BACB2BD11D5500BE6A1E /* AdoptedPupsTableViewCell.swift */; };
-		2FB2BACE2BD11EF400BE6A1E /* AdoptedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2BACD2BD11EF400BE6A1E /* AdoptedTableViewController.swift */; };
+		2FB2BAD02BD1264B00BE6A1E /* AdoptedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2BACF2BD1264B00BE6A1E /* AdoptedListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		2F9A0CEA2BD0D4C100E6BD6A /* DogBreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedsViewController.swift; sourceTree = "<group>"; };
 		2FB2BAC92BD1165D00BE6A1E /* AdoptedPup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptedPup.swift; sourceTree = "<group>"; };
 		2FB2BACB2BD11D5500BE6A1E /* AdoptedPupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptedPupsTableViewCell.swift; sourceTree = "<group>"; };
-		2FB2BACD2BD11EF400BE6A1E /* AdoptedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptedTableViewController.swift; sourceTree = "<group>"; };
+		2FB2BACF2BD1264B00BE6A1E /* AdoptedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptedListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 				2F0381312BD0B76700222594 /* DogBreedsTableViewController.swift */,
 				2FB2BAC92BD1165D00BE6A1E /* AdoptedPup.swift */,
 				2FB2BACB2BD11D5500BE6A1E /* AdoptedPupsTableViewCell.swift */,
-				2FB2BACD2BD11EF400BE6A1E /* AdoptedTableViewController.swift */,
+				2FB2BACF2BD1264B00BE6A1E /* AdoptedListViewController.swift */,
 			);
 			path = "iOS-Assignment4";
 			sourceTree = "<group>";
@@ -160,12 +160,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0381302BD0B5A300222594 /* NetworkingService.swift in Sources */,
+				2FB2BAD02BD1264B00BE6A1E /* AdoptedListViewController.swift in Sources */,
 				2FB2BACA2BD1165D00BE6A1E /* AdoptedPup.swift in Sources */,
 				2FB2BACC2BD11D5500BE6A1E /* AdoptedPupsTableViewCell.swift in Sources */,
 				2F0381362BD0B99A00222594 /* ImagesModel.swift in Sources */,
 				2F0381322BD0B76700222594 /* DogBreedsTableViewController.swift in Sources */,
 				2F9A0CEB2BD0D4C100E6BD6A /* DogBreedsViewController.swift in Sources */,
-				2FB2BACE2BD11EF400BE6A1E /* AdoptedTableViewController.swift in Sources */,
 				2F03811A2BD08E6D00222594 /* AppDelegate.swift in Sources */,
 				2F03811C2BD08E6D00222594 /* SceneDelegate.swift in Sources */,
 				2F03812E2BD0B41C00222594 /* AdoptListViewController.swift in Sources */,

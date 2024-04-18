@@ -15,6 +15,8 @@ class AdoptListViewController: UIViewController, NetworkingDogImagesDelegate {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nameInput: UITextField!
     
+    var pupImg = UIImage(named: "placeholder_profile");
+    
     
     func didFinishWithListofDogImages(dogImgUrl: String) {
         print(dogImgUrl)
@@ -43,13 +45,25 @@ class AdoptListViewController: UIViewController, NetworkingDogImagesDelegate {
     }
     
     @IBAction func onAdoptClick(_ sender: Any) {
-        let image = imgView.image
+        let image = imgView.image as? UIImage
         
         if textFieldNotEmpty(textField: nameInput){
             let pupname = nameInput.text!
             if let goodimage = image {
                 let adoptedPup = AdoptedPup(name: pupname, image: goodimage, breed: breedName)
                 appDelegate?.adoptedPupsList.append(adoptedPup)
+                
+                let alert = UIAlertController(title: "Adopted!", message: "", preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: "Yay!", style: .cancel))
+                
+                let dismissAction = UIAlertAction(title: "Yay", style: .default) { _ in
+                    // Dismissal logic
+                    
+                    self.navigationController?.popViewController(animated: true)
+                }
+                alert.addAction(dismissAction)
+                present(alert, animated: true)
+                
             }
         } else {
             let alert = UIAlertController(title: "Please give them a name first", message: "", preferredStyle: .alert)
@@ -79,6 +93,10 @@ class AdoptListViewController: UIViewController, NetworkingDogImagesDelegate {
     }
     
 
+    @objc func backButtonTapped() {
+        // Dismiss the current view controller to go back to the previous one
+        dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
