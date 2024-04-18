@@ -16,6 +16,7 @@
 		2F0381302BD0B5A300222594 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F03812F2BD0B5A300222594 /* NetworkingService.swift */; };
 		2F0381322BD0B76700222594 /* DogBreedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0381312BD0B76700222594 /* DogBreedsTableViewController.swift */; };
 		2F0381362BD0B99A00222594 /* ImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0381352BD0B99A00222594 /* ImagesModel.swift */; };
+		2F9A0CEB2BD0D4C100E6BD6A /* DogBreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9A0CEA2BD0D4C100E6BD6A /* DogBreedsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2F03812F2BD0B5A300222594 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		2F0381312BD0B76700222594 /* DogBreedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedsTableViewController.swift; sourceTree = "<group>"; };
 		2F0381352BD0B99A00222594 /* ImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesModel.swift; sourceTree = "<group>"; };
+		2F9A0CEA2BD0D4C100E6BD6A /* DogBreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				2F03812D2BD0B41C00222594 /* AdoptListViewController.swift */,
 				2F03812F2BD0B5A300222594 /* NetworkingService.swift */,
 				2F0381352BD0B99A00222594 /* ImagesModel.swift */,
+				2F9A0CEA2BD0D4C100E6BD6A /* DogBreedsViewController.swift */,
 			);
 			path = "iOS-Assignment4";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				2F0381302BD0B5A300222594 /* NetworkingService.swift in Sources */,
 				2F0381362BD0B99A00222594 /* ImagesModel.swift in Sources */,
 				2F0381322BD0B76700222594 /* DogBreedsTableViewController.swift in Sources */,
+				2F9A0CEB2BD0D4C100E6BD6A /* DogBreedsViewController.swift in Sources */,
 				2F03811A2BD08E6D00222594 /* AppDelegate.swift in Sources */,
 				2F03811C2BD08E6D00222594 /* SceneDelegate.swift in Sources */,
 				2F03812E2BD0B41C00222594 /* AdoptListViewController.swift in Sources */,
