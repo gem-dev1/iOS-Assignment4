@@ -8,12 +8,13 @@
 import UIKit
 
 class AdoptListViewController: UIViewController, NetworkingDogImagesDelegate {
-    func didFinishWithListofDogImages(list: [String]) {
-        <#code#>
+    
+    func didFinishWithListofDogImages(imgObj: ImagesModel) {
+        //
     }
     
     func didFinishWithError() {
-        <#code#>
+        //
     }
     
 
