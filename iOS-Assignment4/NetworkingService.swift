@@ -12,7 +12,7 @@ protocol NetworkingDogBreedsDelegate {
     func didFinishWithError();
 }
 protocol NetworkingDogImagesDelegate {
-    func didFinishWithListofDogImages(list: [String]);
+    func didFinishWithListofDogImages(dogImgUrl: String);
     func didFinishWithError();
 }
 
@@ -61,7 +61,7 @@ class NetworkingService {
     }
     
     func getListofDogPictures(dogBreed: String){
-        let urlObj = URL(string: "https://dog.ceo/api/breeds/list/all")!
+        let urlObj = URL(string: "https://dog.ceo/api/breed/\(dogBreed)/images/random")!
         let task = URLSession.shared.dataTask(with: urlObj) { data, response, error in
             
             if let _ = error {
@@ -79,11 +79,9 @@ class NetworkingService {
                 if let data = data {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     if let jsonDict = json as? [String: Any],
-                       let dogImagesDict = jsonDict["message"] as? [String] {
-                        let dogImages = Array(dogImagesDict)
-                        
+                       let dogImageUrl = jsonDict["message"] as? String {
                         DispatchQueue.main.async {
-                            self.dogImagesDelegate?.didFinishWithListofDogImages(list: dogImages)
+                            self.dogImagesDelegate?.didFinishWithListofDogImages(dogImgUrl: dogImageUrl)
                         }
                     }
                 }
